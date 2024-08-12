@@ -213,7 +213,7 @@ class _VendorPageState extends State<VendorPage> {
             padding: const EdgeInsets.all(16.0),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 28, 20, 85),
+                backgroundColor: Color.fromARGB(255, 2, 2, 3),
                 shape: RoundedRectangleBorder(
                   borderRadius:
                       BorderRadius.circular(12), // Optional: round corners
@@ -422,7 +422,7 @@ class _AddProductPageState extends State<AddProductPage> {
                 height: 50,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 28, 20, 85),
+                    backgroundColor: Color.fromARGB(255, 2, 2, 2),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),

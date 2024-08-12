@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:file_picker/file_picker.dart';
 
 class AddDetailsPage extends StatefulWidget {
   final double titleFontSize;
@@ -15,19 +16,29 @@ class AddDetailsPage extends StatefulWidget {
 }
 
 class _AddDetailsPageState extends State<AddDetailsPage> {
-  final TextEditingController _categoryController = TextEditingController();
-  final TextEditingController _subCategoryController = TextEditingController();
   final TextEditingController _serialNumberController = TextEditingController();
   final TextEditingController _modelNameController = TextEditingController();
   final TextEditingController _attachmentsController = TextEditingController();
   final TextEditingController _availabilityController = TextEditingController();
   final TextEditingController _productImagesController =
       TextEditingController();
-  final TextEditingController _priceTypeController = TextEditingController();
+  final TextEditingController _priceController = TextEditingController();
+  final TextEditingController _additionalChargesController =
+      TextEditingController();
 
   String? _selectedSerialNumber;
   String? _selectedPriceType;
   String? _selectedAdditionalServices;
+
+  Future<void> _pickImage() async {
+    FilePickerResult? result =
+        await FilePicker.platform.pickFiles(type: FileType.image);
+    if (result != null) {
+      setState(() {
+        _productImagesController.text = result.files.single.name;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -171,7 +182,6 @@ class _AddDetailsPageState extends State<AddDetailsPage> {
                       ),
                     ),
                     const SizedBox(height: 16),
-
                     const Text(
                       "Machinery ID/Serial Number",
                       style: TextStyle(
@@ -253,7 +263,6 @@ class _AddDetailsPageState extends State<AddDetailsPage> {
                         hintText: 'Select',
                       ),
                     ),
-
                     const SizedBox(height: 16),
                     const Text(
                       "Additional Attachments",
@@ -293,8 +302,13 @@ class _AddDetailsPageState extends State<AddDetailsPage> {
                     ),
                     TextField(
                       controller: _productImagesController,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
+                      readOnly: true,
+                      decoration: InputDecoration(
+                        border: const OutlineInputBorder(),
+                        suffixIcon: IconButton(
+                          icon: const Icon(Icons.image),
+                          onPressed: _pickImage,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -330,20 +344,20 @@ class _AddDetailsPageState extends State<AddDetailsPage> {
                     ),
                     const SizedBox(height: 16),
                     const Text(
-                      "Price ",
+                      "Price",
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.normal,
                       ),
                     ),
                     TextField(
-                      controller: _priceTypeController,
+                      controller: _priceController,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                       ),
                     ),
                     const Text(
-                      'Price include the Application platform fee 10%',
+                      'Price includes the Application platform fee 10%',
                       style: TextStyle(
                         color: Color.fromARGB(255, 84, 82, 82),
                         fontWeight: FontWeight.normal,
@@ -351,7 +365,7 @@ class _AddDetailsPageState extends State<AddDetailsPage> {
                     ),
                     const SizedBox(height: 16),
                     const Text(
-                      "+ add a New Price Type ",
+                      "+ Add a New Price Type",
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.normal,
@@ -394,14 +408,14 @@ class _AddDetailsPageState extends State<AddDetailsPage> {
                       ),
                     ),
                     TextField(
-                      controller: _priceTypeController,
+                      controller: _additionalChargesController,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                       ),
                     ),
                     const SizedBox(height: 16),
                     const Text(
-                      "+ Add a new Additional servies ",
+                      "+ Add a new Additional Service",
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.normal,
@@ -421,7 +435,7 @@ class _AddDetailsPageState extends State<AddDetailsPage> {
                           const SizedBox(height: 16),
                           const Center(
                             child: Text(
-                              "+ Add another JCB ",
+                              "+ Add another JCB",
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -436,8 +450,7 @@ class _AddDetailsPageState extends State<AddDetailsPage> {
                               height: 50,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      Color.fromARGB(255, 28, 20, 85),
+                                  backgroundColor: Color.fromARGB(255, 6, 6, 8),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(12),
                                   ),
@@ -459,7 +472,7 @@ class _AddDetailsPageState extends State<AddDetailsPage> {
                           const SizedBox(height: 16),
                           const Center(
                             child: Text(
-                              'cancel',
+                              'Cancel',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
@@ -470,7 +483,6 @@ class _AddDetailsPageState extends State<AddDetailsPage> {
                         ],
                       ),
                     ),
-                    // Add more widgets as required for the details page
                   ],
                 ),
               ),

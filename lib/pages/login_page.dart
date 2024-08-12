@@ -114,7 +114,7 @@ class LoginPage extends StatelessWidget {
                             child: const Text(
                               'Forgot Password?',
                               style: TextStyle(
-                                color: Color.fromARGB(255, 67, 13, 245),
+                                color: Color.fromARGB(255, 4, 4, 4),
                               ),
                             ),
                           ),
@@ -128,7 +128,7 @@ class LoginPage extends StatelessWidget {
                             child: const Text(
                               'Login with OTP',
                               style: TextStyle(
-                                color: Color.fromARGB(255, 67, 13, 245),
+                                color: Color.fromARGB(255, 4, 4, 4),
                               ),
                             ),
                           ),
@@ -231,8 +231,7 @@ class LoginPage extends StatelessWidget {
                             height: 50,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    Color.fromARGB(255, 28, 20, 85),
+                                backgroundColor: Color.fromARGB(255, 5, 5, 6),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),

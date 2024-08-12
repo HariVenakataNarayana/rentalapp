@@ -94,7 +94,7 @@ class SignupPage extends StatelessWidget {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 28, 20, 85),
+                            backgroundColor: Color.fromARGB(255, 5, 5, 8),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),

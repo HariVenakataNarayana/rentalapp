@@ -234,7 +234,7 @@ class _WelcomePageState extends State<WelcomePage> {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 28, 20, 85),
+                            backgroundColor: Color.fromARGB(255, 10, 10, 14),
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 40.0, vertical: 16.0),
                           ),
