@@ -6,10 +6,10 @@ class WelcomePage extends StatefulWidget {
   final FontWeight titleFontWeight;
 
   const WelcomePage({
-    Key? key,
+    super.key,
     required this.titleFontSize,
     required this.titleFontWeight,
-  }) : super(key: key);
+  });
 
   @override
   _WelcomePageState createState() => _WelcomePageState();
@@ -60,6 +60,12 @@ class _WelcomePageState extends State<WelcomePage> {
                     fontWeight: widget.titleFontWeight,
                   ),
                 ),
+                const SizedBox(height: 10),
+                Image.asset(
+                  'assets/access4.png',
+                  height: 200,
+                  width: 200,
+                ),
                 const SizedBox(height: 70),
                 Padding(
                   padding: const EdgeInsets.symmetric(
@@ -73,14 +79,6 @@ class _WelcomePageState extends State<WelcomePage> {
                           color: Color.fromARGB(255, 17, 17, 17),
                           fontWeight: FontWeight.bold,
                           fontSize: 40,
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      Center(
-                        child: Image.asset(
-                          'assets/icons.png',
-                          width: 50,
-                          height: 50,
                         ),
                       ),
                       const SizedBox(height: 10),
@@ -192,11 +190,12 @@ class _WelcomePageState extends State<WelcomePage> {
                                       style: TextStyle(
                                         fontSize: widget.titleFontSize,
                                         fontWeight: FontWeight.normal,
-                                        color: Color.fromARGB(255, 60, 60, 60),
+                                        color: const Color.fromARGB(
+                                            255, 60, 60, 60),
                                       ),
                                       children: [
-                                        TextSpan(
-                                          text: 'notifiy',
+                                        const TextSpan(
+                                          text: 'notify',
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             color: Colors.black87,
@@ -235,15 +234,14 @@ class _WelcomePageState extends State<WelcomePage> {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                const Color.fromARGB(255, 246, 243, 243),
+                            backgroundColor: Color.fromARGB(255, 28, 20, 85),
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 40.0, vertical: 16.0),
                           ),
                           child: const Text(
                             'LogOut',
                             style: TextStyle(
-                              color: Color.fromARGB(255, 13, 13, 13),
+                              color: Color.fromARGB(255, 247, 239, 239),
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),

@@ -4,7 +4,7 @@ class SquareTile extends StatelessWidget {
   final String imagePath;
   final double size;
 
-  SquareTile({
+  const SquareTile({super.key, 
     required this.imagePath,
     this.size = 25.0, // Default size
   });

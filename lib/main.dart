@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rentalapp/pages/adddetails_page.dart';
 import 'package:rentalapp/pages/login_page.dart';
 import 'package:rentalapp/pages/signup_page.dart';
 import 'package:rentalapp/pages/created_page.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashPage(),
+      home: const SplashPage(),
       routes: {
         '/login': (context) => LoginPage(
               titleFontSize: 24.0,
@@ -30,15 +31,23 @@ class MyApp extends StatelessWidget {
               titleFontSize: 24.0,
               titleFontWeight: FontWeight.bold,
             ),
-        '/create': (context) => CreatedPage(
+        '/create': (context) => const CreatedPage(
               titleFontSize: 24.0,
               titleFontWeight: FontWeight.bold,
             ),
-        '/loginotp': (context) => LoginotpPage(
+        '/loginotp': (context) => const LoginotpPage(
               titleFontSize: 24.0,
               titleFontWeight: FontWeight.bold,
             ),
-        '/forgotpassword': (context) => ForgotpasswordPage(
+        '/forgotpassword': (context) => const ForgotpasswordPage(
+              titleFontSize: 24.0,
+              titleFontWeight: FontWeight.bold,
+            ),
+        '/Addddetails': (context) => const AddDetailsPage(
+              titleFontSize: 24.0,
+              titleFontWeight: FontWeight.bold,
+            ),
+        '/HomePage': (context) => const AddDetailsPage(
               titleFontSize: 24.0,
               titleFontWeight: FontWeight.bold,
             ),

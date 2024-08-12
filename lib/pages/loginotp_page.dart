@@ -6,11 +6,11 @@ class LoginotpPage extends StatefulWidget {
   final double titleFontSize;
   final FontWeight titleFontWeight;
 
-  LoginotpPage({
-    Key? key,
+  const LoginotpPage({
+    super.key,
     required this.titleFontSize,
     required this.titleFontWeight,
-  }) : super(key: key);
+  });
 
   @override
   _LoginotpPageState createState() => _LoginotpPageState();
@@ -23,7 +23,7 @@ class _LoginotpPageState extends State<LoginotpPage> {
   late Timer _timer;
 
   void _startTimer() {
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         if (this.timer > 0) {
           this.timer--;
@@ -66,6 +66,13 @@ class _LoginotpPageState extends State<LoginotpPage> {
                   fontWeight: widget.titleFontWeight,
                 ),
               ),
+              const SizedBox(height: 10),
+              Image.asset(
+                'assets/OTP.png', // Update this to your actual image path
+                height: 200,
+                width: 200,
+                // Set the desired height
+              ),
               const SizedBox(height: 70),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,7 +104,7 @@ class _LoginotpPageState extends State<LoginotpPage> {
                     obscureText: false,
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 25.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -107,7 +114,7 @@ class _LoginotpPageState extends State<LoginotpPage> {
                               _sendOTP();
                             }
                           },
-                          child: Text(
+                          child: const Text(
                             'Send the OTP',
                             style: TextStyle(
                               color: Color.fromARGB(255, 67, 13, 245),
@@ -118,7 +125,7 @@ class _LoginotpPageState extends State<LoginotpPage> {
                         if (isOTPSent)
                           Text(
                             '($timer)',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.red,
                             ),
                           ),
@@ -132,7 +139,7 @@ class _LoginotpPageState extends State<LoginotpPage> {
                       height: 50,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black,
+                          backgroundColor: Color.fromARGB(255, 28, 20, 85),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
@@ -140,7 +147,7 @@ class _LoginotpPageState extends State<LoginotpPage> {
                         onPressed: () {
                           // Add your submit logic here
                         },
-                        child: Text(
+                        child: const Text(
                           'SUBMIT',
                           style: TextStyle(
                             color: Colors.white,

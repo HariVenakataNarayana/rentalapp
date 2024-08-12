@@ -3,10 +3,12 @@ import 'dart:async';
 import 'package:rentalapp/pages/login_page.dart'; // Import the LoginPage
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,12 +16,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashPage(),
+      home: const SplashPage(),
     );
   }
 }
 
 class SplashPage extends StatefulWidget {
+  const SplashPage({super.key});
+
   @override
   _SplashPageState createState() => _SplashPageState();
 }
@@ -32,8 +36,8 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   startTime() async {
-    var _duration = Duration(seconds: 3);
-    return Timer(_duration, route);
+    var duration = const Duration(seconds: 3);
+    return Timer(duration, route);
   }
 
   void route() {
@@ -55,10 +59,13 @@ class _SplashPageState extends State<SplashPage> {
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0xffF5591F),
               gradient: LinearGradient(
-                colors: [(new Color(0xff1393aa)), new Color(0xff1fceee)],
+                colors: [
+                  (Color.fromARGB(255, 7, 34, 211)),
+                  Color.fromARGB(255, 29, 78, 240)
+                ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -66,9 +73,9 @@ class _SplashPageState extends State<SplashPage> {
           ),
           Center(
             child: Image.asset(
-              'assets/icons.png', // Ensure this is correct
-              width: 50.0, // Adjust width as needed
-              height: 50.0, // Adjust height as needed
+              'assets/icons8.png', // Ensure this is correct
+              width: 100.0, // Adjust width as needed
+              height: 100.0, // Adjust height as needed
             ),
           ),
         ],

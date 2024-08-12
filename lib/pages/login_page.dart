@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rentalapp/components/my_button.dart';
 import 'package:rentalapp/components/my_textfield.dart';
 import 'package:rentalapp/components/square_tile.dart';
+import 'package:rentalapp/pages/home_page.dart';
 import 'package:rentalapp/pages/signup_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -9,18 +10,28 @@ class LoginPage extends StatelessWidget {
   final FontWeight titleFontWeight;
 
   LoginPage({
-    Key? key,
+    super.key,
     required this.titleFontSize,
     required this.titleFontWeight,
-  }) : super(key: key);
+  });
 
   // text editing controllers
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
   // sign user in method
-  void signUserIn() {
+  void signUserIn(BuildContext context) {
     // Implement sign-in logic here
+
+    // Navigate to HomePage after signing in
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+          builder: (context) => HomePage(
+                titleFontSize: titleFontSize,
+                titleFontWeight: titleFontWeight,
+              )),
+    );
   }
 
   @override
@@ -33,7 +44,7 @@ class LoginPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Text(
                   'RENTAL',
                   style: TextStyle(
@@ -41,26 +52,33 @@ class LoginPage extends StatelessWidget {
                     fontWeight: titleFontWeight,
                   ),
                 ),
+                const SizedBox(height: 10),
+                Image.asset(
+                  'assets/access1.png', // Update this to your actual image path
+                  height: 200,
+                  width: 200,
+                  // Set the desired height
+                ),
 
-                SizedBox(height: 70),
+                const SizedBox(height: 80),
 
                 // Login
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.only(left: 10.0),
                       child: Text(
-                        'Log In',
+                        'Welcome Back',
                         style: TextStyle(
-                          color: Color.fromARGB(255, 17, 17, 17),
+                          color: Color.fromARGB(255, 9, 9, 9),
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
                         ),
                       ),
                     ),
 
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
 
                     // username textfield
                     MyTextField(
@@ -69,7 +87,7 @@ class LoginPage extends StatelessWidget {
                       obscureText: false,
                     ),
 
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
 
                     // password textfield
                     MyTextField(
@@ -78,11 +96,11 @@ class LoginPage extends StatelessWidget {
                       obscureText: true,
                     ),
 
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
 
                     // forgot password?
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 25.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -93,7 +111,7 @@ class LoginPage extends StatelessWidget {
                                 '/forgotpassword',
                               );
                             },
-                            child: Text(
+                            child: const Text(
                               'Forgot Password?',
                               style: TextStyle(
                                 color: Color.fromARGB(255, 67, 13, 245),
@@ -107,7 +125,7 @@ class LoginPage extends StatelessWidget {
                                 '/loginotp',
                               );
                             },
-                            child: Text(
+                            child: const Text(
                               'Login with OTP',
                               style: TextStyle(
                                 color: Color.fromARGB(255, 67, 13, 245),
@@ -117,19 +135,17 @@ class LoginPage extends StatelessWidget {
                         ],
                       ),
                     ),
-
-                    SizedBox(height: 25),
-
+                    const SizedBox(height: 10),
                     // sign in button
                     MyButton(
-                      onTap: signUserIn,
+                      onTap: () => signUserIn(context),
                     ),
 
-                    SizedBox(height: 50),
+                    const SizedBox(height: 20),
 
                     // or continue with
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 25.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: Row(
                         children: [
                           Expanded(
@@ -139,7 +155,8 @@ class LoginPage extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 10.0),
                             child: Text(
                               'Or Sign In with',
                               style: TextStyle(color: Colors.grey[700]),
@@ -155,7 +172,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: 50),
+                    const SizedBox(height: 20),
 
                     // google sign in button
                     Center(
@@ -164,7 +181,8 @@ class LoginPage extends StatelessWidget {
                         height: 50,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 177, 176, 176),
+                            backgroundColor:
+                                const Color.fromARGB(255, 177, 176, 176),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -172,7 +190,7 @@ class LoginPage extends StatelessWidget {
                           onPressed: () {
                             // Implement Google sign-in logic here
                           },
-                          child: Row(
+                          child: const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SquareTile(imagePath: 'assets/google.png'),
@@ -193,12 +211,12 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: 40),
+                    const SizedBox(height: 20),
 
                     // not a member? register now
                     Column(
                       children: [
-                        Text(
+                        const Text(
                           'Create an account',
                           style: TextStyle(
                             color: Colors.black,
@@ -206,14 +224,15 @@ class LoginPage extends StatelessWidget {
                             fontSize: 20,
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Center(
                           child: SizedBox(
                             width: 370,
                             height: 50,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.black,
+                                backgroundColor:
+                                    Color.fromARGB(255, 28, 20, 85),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),
@@ -229,7 +248,7 @@ class LoginPage extends StatelessWidget {
                                   ),
                                 );
                               },
-                              child: Text(
+                              child: const Text(
                                 'Sign Up',
                                 style: TextStyle(
                                   color: Colors.white,
@@ -246,6 +265,38 @@ class LoginPage extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class MyTextField extends StatelessWidget {
+  final TextEditingController controller;
+  final String hintText;
+  final bool obscureText;
+
+  const MyTextField({
+    Key? key,
+    required this.controller,
+    required this.hintText,
+    required this.obscureText,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      child: TextField(
+        controller: controller,
+        obscureText: obscureText,
+        decoration: InputDecoration(
+          hintText: hintText,
+          filled: true,
+          fillColor: Colors.white,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
           ),
         ),
       ),

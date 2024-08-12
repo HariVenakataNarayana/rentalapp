@@ -5,11 +5,11 @@ class ForgotpasswordPage extends StatefulWidget {
   final double titleFontSize;
   final FontWeight titleFontWeight;
 
-  ForgotpasswordPage({
-    Key? key,
+  const ForgotpasswordPage({
+    super.key,
     required this.titleFontSize,
     required this.titleFontWeight,
-  }) : super(key: key);
+  });
 
   @override
   _ForgotpasswordPageState createState() => _ForgotpasswordPageState();
@@ -64,7 +64,7 @@ class _ForgotpasswordPageState extends State<ForgotpasswordPage> {
                       height: 50,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black,
+                          backgroundColor: Color.fromARGB(255, 28, 20, 85),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
@@ -72,7 +72,7 @@ class _ForgotpasswordPageState extends State<ForgotpasswordPage> {
                         onPressed: () {
                           // Add your submit logic here
                         },
-                        child: Text(
+                        child: const Text(
                           'Send the Link',
                           style: TextStyle(
                             color: Colors.white,
